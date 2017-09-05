@@ -15,20 +15,11 @@
         try {
             String username=request.getParameter("email");
             String password=request.getParameter("pass");
-            String dbuser = "root";
-            String dbpass = "root";
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3308/ip_project", dbuser, dbpass);
-            PreparedStatement pst=con.prepareStatement("SELECT name FROM admin WHERE uname=? AND password=?");
-            pst.setString(1, username);
-            pst.setString(2, password);
-            ResultSet rs = pst.executeQuery();
-            if(rs.next()) {
-                out.println("Valid login credentials");
-            } else {
-                out.println("Invalid login credentials");
-            }
-
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3308/ip_project", "root", "root");
+            Statement pst=con.createStatement();
+            ResultSet rs = pst.executeQuery("SELECT name FROM admin WHERE uname='"+ username +"' AND password='"+ password +"'");
+            out.println("Welcome "+ rs.getString(0) );
         } catch(Exception e) {
             out.println("Something went wrong. The following exception took place :\n" + e);
         }
