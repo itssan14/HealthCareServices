@@ -15,9 +15,11 @@
         try {
             String username=request.getParameter("email");
             String password=request.getParameter("pass");
+            String dbuser = "root";
+            String dbpass = "root";
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ip_project","root"," ");
-            PreparedStatement pst=con.prepareStatement("SELECT uname,pass FROM admin WHERE uname=?,pass=? ");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3308/ip_project", dbuser, dbpass);
+            PreparedStatement pst=con.prepareStatement("SELECT name FROM admin WHERE uname=? AND password=?");
             pst.setString(1, username);
             pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
