@@ -17,7 +17,7 @@
             String password=request.getParameter("pass");
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ip_project","root"," ");
-            PreparedStatement pst=con.prepareStatement();
+            PreparedStatement pst=con.prepareStatement("SELECT uname,pass FROM admin WHERE uname=?,pass=? ");
             pst.setString(1, username);
             pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
@@ -28,7 +28,7 @@
             }
 
         } catch(Exception e) {
-            out.println("Something went wrong" + e);
+            out.println("Something went wrong. The following exception took place :\n" + e);
         }
     %>
 </body>

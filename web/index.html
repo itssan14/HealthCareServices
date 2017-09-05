@@ -27,17 +27,17 @@
     </nav>
     <!-- Login Modal -->
     <div id="mod1" class="modal">
-        <form action="submit.jsp">
+        <form action="submit.jsp" method="post">
             <div class="modal-content">
                 <h4>Login Form</h4>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="abc@email.com" name="email" id="first_name" type="text" class="validate">
+                        <input placeholder="abc@email.com" name="email" id="first_name" type="text" class="validate" required autofocus>
                         <label for="first_name">Username</label>
                     </div>
                     <div class="input-field col s12">
-                        <input placeholder="Enter Password" name="pass" id="user_pass" type="password" class="validate">
+                        <input placeholder="*******" name="pass" id="user_pass" type="password" class="validate" required>
                         <label for="user_pass">Password</label>
                     </div>
                 </div>
