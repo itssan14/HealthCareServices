@@ -16,9 +16,15 @@
             String username=request.getParameter("email");
             String password=request.getParameter("pass");
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3308/ip_project", "root", "root");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ip_project", "root", "root");
             Statement st=con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT name FROM admin WHERE uname='"+ username +"' AND password='"+ password +"'");
+            ResultSet rs = st.executeQuery("SELECT * FROM admin WHERE uname='"+ username +"' AND password='"+ password +"'");
+            /* To print the contents of the db
+                while (rs.next())
+                {
+                    out.println(rs.getString("name"));
+                }
+            */
         } catch(Exception e) {
             out.println("Something went wrong. The following exception took place :\n" + e);
         }
