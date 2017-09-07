@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Validating Your Information. :)</title>
+    <title>Register Here</title>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
@@ -12,16 +12,49 @@
 </head>
 <body>
     <%
-        String name = request.getParameter("name");
+        //Patient ID
+        Random rn = new Random();
+        int id = rn.nextInt(10000) + 1;
+        //Name
+        String fname = request.getParameter("FName");       
+        String lname = request.getParameter("LName");
+        String name = fname + lname;
+        //Date & Time
+        String date = request.getParameter("");
+        String time = request.getParameter("");
+        //Blood Group
+        String blood = request.getParameter("");
+        //Problem Description
+        String comment = request.getParameter("");
+        //Consultancy Doctor
+        String docctor = request.getParameter("");
+        //Email
+        String email = request.getParameter("Mail");
+        //Number
+        String number = request.getParameter("Number");
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ip_project", "root", "root");
-            Statement st=con.createStatement();
-            //VALIDATING IF THE ENTERED CREDENTIALS ARE AVAILABLE IN THE DATABASE
-            ResultSet rs = st.executeQuery("SELECT * FROM patients");
-            //FETCHING CONTENTS FROM THE DATABASE
+            String query = "INSERT INTO patients VALUE ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(1,id);
+            stmt.setString(2,name);
+            stmt.setString(3,date);
+            stmt.setString(4,time);
+            stmt.setString(5,blood);
+            stmt.setString(6,comment);
+            stmt.setString(7,doctor);
+            stmt.setString(8,email);
+            stmt.setInt(9,number);
+            int pos=stmt.executeUpdate();
+            if(pos > 0) {
+                String result = "Succesfully Inserted";
+            } else {
+                String result = "Failed to insert into database. Try again later.";
+            }
         } catch (Exception e) {
-                out.println("Error :" + e);
+            String error = e;
         }
     
     %>
@@ -32,7 +65,7 @@
                 <a href="#" class="brand-logo">San</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="1.html">About</a></li>
-                    <li><a href="apt.html">Appointments</a></li>
+                    <li><a href="register.html">Appointments</a></li>
                     <li><a href="schedule.html">Schedules</a></li>
                     <li><a class="waves-effect waves-light btn white blue-text modal-trigger" href="#mod1">Login</a>
                     </li>

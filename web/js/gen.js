@@ -7,5 +7,6 @@ $(document).ready(function() {
     });
     //Modal Trigger
     $('.modal').modal();
-
+    //Navigation Bar
+    $(".button-collapse").sideNav();
 });

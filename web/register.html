@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome To San Clinic</title>
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <div class="nav-wrapper blue darken-2">
+            <div class="container">
+                <a href="#" class="brand-logo">San</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="1.html">About</a></li>
+                    <li><a href="register.html">Appointments</a></li>
+                    <li><a href="schedule.html">Schedules</a></li>
+                    <li><a class="waves-effect waves-light btn white blue-text modal-trigger" href="#mod1">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Login Modal -->
+    <div id="mod1" class="modal">
+        <form action="submit.jsp" method="post">
+            <div class="modal-content">
+                <h4>Login Form</h4>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="abc@email.com" name="email" id="first_name" type="text" class="validate" required autofocus>
+                        <label for="first_name">Username</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input placeholder="*******" name="pass" id="user_pass" type="password" class="validate" required>
+                        <label for="user_pass">Password</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn waves-effect" value="Submit">
+            </div>
+        </form>
+    </div>
+    <!--Registration Form Card-->
+    <div class="row">
+        <div class="card-panel">
+            <!--Form-->
+            <div class="row">
+                <form class="col s12" method="post" action="register.jsp">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="John" id="first_name" name="FName" type="text" class="validate" required>
+                            <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last_name" placeholder="David" name="LName" type="text" class="validate" required>
+                            <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="email" placeholder="abc@gmail.com" name="Mail" type="email" class="validate" required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="num" placeholder="+919845632456" name="cno" type="text" class="validate" required>
+                            <label for="num">Number</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s7">
+                            <input id="comment" placeholder="Enter an comment regarding your problem" name="Problem" type="text" class="validate">
+                            <label for="comment">Comment</label>
+                        </div>
+                        <div class="input-field col s5">
+                            <label for="title">Doctor</label>
+                            <select id="title" name="title">
+                                <option value="mr">Mr. Akshay</option>
+                                <option>Mr. Kannan</option>
+                                <option>Mrs.Ranjini</option>
+                            </select>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="page-footer blue darken-2">
+            <div class=" container ">
+                <div class="row ">
+                    <div class="col l6 s12 ">
+                        <h5 class="white-text ">Thanks for visiting us.</h5>
+                        <p class="grey-text text-lighten-4 ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit impedit eius, praesentium nesciunt maiores perspiciatis nam et numquam inventore aliquid nihil nobis aut iste totam qui tenetur aperiam amet! Exercitationem voluptate,
+                            enim dolore tempore quia corrupti sit, nostrum nam eligendi aliquam deserunt magnam similique iure rem ea cum rerum quis!</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12 ">
+                        <h5 class="white-text ">Links</h5>
+                        <ul>
+                            <li><a class="grey-text text-lighten-3 " href="#! ">About</a></li>
+                            <li><a class="grey-text text-lighten-3 " href="#! ">Appointments</a></li>
+                            <li><a class="grey-text text-lighten-3 " href="#! ">Login</a></li>
+                            <li><a class="grey-text text-lighten-3 " href="#! ">Schedule</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright ">
+                <div class="container ">
+                    © 2017 Copyright Sanjay
+                </div>
+            </div>
+        </footer>
+        <!-- Javascript -->
+        <script type="text/javascript " src="js/jquery-3.2.1.min.js "></script>
+        <script type="text/javascript " src="js/materialize.min.js "></script>
+        <script type="text/javascript " src="js/gen.js "></script>
+</body>
+
+</html>
