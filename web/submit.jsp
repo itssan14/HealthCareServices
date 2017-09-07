@@ -18,6 +18,7 @@
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ip_project", "root", "root");
             Statement st=con.createStatement();
+            //VALIDATING IF THE ENTERED CREDENTIALS ARE AVAILABLE IN THE DATABASE
             ResultSet rs = st.executeQuery("SELECT * FROM admin WHERE uname='"+ username +"' AND password='"+ password +"'");
             //FETCHING CONTENTS FROM THE DATABASE
             while (rs.next())
@@ -25,14 +26,12 @@
                 String nam = rs.getString("name");
                 if (nam != null) {
                     //CHECKING IF THE SQL QUERY RESULTED IN A SUCCESS
-                    /* PASSING  INFO VIA URL TO NEW WEBPAGE
-                        String pat = "patients.jsp?name=" + nam;
-                        response.sendRedirect(pat);
-                    */
-                    response.sendRedirect("patients.jsp");
+                    String url = "patients.jsp?name=" + nam;
+                    response.sendRedirect(url);
                 } else {
-                    //IF QUERY FAILED LIKELY THE PERSON IS NOT AN ADMIN AND DOES NOT  HAVE ACCESS TO PATIENT DETAILS
-                    response.sendRedirect("failed.jsp");
+                    //IF QUERY FAILED LIKELY THE PERSON IS NOT AN ADMIN AND DOES NOT HAVE ACCESS TO PATIENT DETAILS
+                    String url = "failed.jsp?email=" + username;
+                    response.sendRedirect(url);
                 }
             }                                     
         } catch(Exception e) {
