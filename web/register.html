@@ -26,12 +26,12 @@
             </div>
         </div>
     </nav>
+    <br>
     <!-- Login Modal -->
     <div id="mod1" class="modal">
         <form action="submit.jsp" method="post">
             <div class="modal-content">
                 <h4>Login Form</h4>
-
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="abc@email.com" name="email" id="first_name" type="text" class="validate" required autofocus>
@@ -52,44 +52,72 @@
     <div class="row">
         <div class="card-panel">
             <!--Form-->
-            <div class="row">
-                <form class="col s12" method="post" action="register.jsp">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input placeholder="John" id="first_name" name="FName" type="text" class="validate" required>
-                            <label for="first_name">First Name</label>
+            <div class="container">
+                <div class="row">
+                    <form class="col s12" method="post" action="register.jsp">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input placeholder="John" id="first_name" name="FName" type="text" class="validate" required>
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="last_name" placeholder="David" name="LName" type="text" class="validate" required>
+                                <label for="last_name">Last Name</label>
+                            </div>
                         </div>
-                        <div class="input-field col s6">
-                            <input id="last_name" placeholder="David" name="LName" type="text" class="validate" required>
-                            <label for="last_name">Last Name</label>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="email" placeholder="abc@gmail.com" name="Mail" type="email" class="validate" required>
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="num" placeholder="9845632456" name="Number" type="number" class="validate" required>
+                                <label for="num">Number</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="email" placeholder="abc@gmail.com" name="Mail" type="email" class="validate" required>
-                            <label for="email">Email</label>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="comment" placeholder="Describe your problem" name="Problem" type="text" class="validate" data-length="30">
+                                <label for="comment">Problem</label>
+                            </div>
                         </div>
-                        <div class="input-field col s6">
-                            <input id="num" placeholder="+919845632456" name="cno" type="text" class="validate" required>
-                            <label for="num">Number</label>
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <select name="Doctor" id="Doc" required>
+                                                    <option value="Akshay Kannan" >Akshay Kannan</option>
+                                                    <option value="Prudhvi Chirumamila">Prudhvi Chirumamila</option>
+                                                    <option value="Anandha Kumari">Anandha Kumari</option>
+                                                    <option value="Vijayalakshmi Ramachandran">Vijayalakshmi Ramachandran</option> 
+                                        </select>
+                            </div>
+                            <div class="input-field col s2">
+                                <select name="BGroup" required>
+                                                    <option value="O+" >O+</option>
+                                                    <option value="O-">O-</option>
+                                                    <option value="A-">A-</option>
+                                                    <option value="A+">A+</option>
+                                                    <option value="B-">B-</option>
+                                                    <option value="B+">B+</option>
+                                                    <option value="AB-">AB-</option>
+                                                    <option value="AB+">AB+</option>                            
+                                        </select>
+                            </div>
+                            <div class="input-field col s4">
+                                <label for="Date">Date</label>
+                                <input type="text" id="Date" class="datepicker" name="Dates" required>
+                            </div>
+                            <div class="input-field col s2">
+                                <label for="Time">Time</label>
+                                <input type="text" id="Time" class="timepicker" name="Time" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s7">
-                            <input id="comment" placeholder="Enter an comment regarding your problem" name="Problem" type="text" class="validate">
-                            <label for="comment">Comment</label>
+                        <div class="row">
+                            <div class="col s1 offset-s10">
+                                <input type="submit" value="SUBMIT" class="waves-effect waves-light btn ">
+                            </div>
                         </div>
-                        <div class="input-field col s5">
-                            <label for="title">Doctor</label>
-                            <select id="title" name="title">
-                                <option value="mr">Mr. Akshay</option>
-                                <option>Mr. Kannan</option>
-                                <option>Mrs.Ranjini</option>
-                            </select>
-
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
 

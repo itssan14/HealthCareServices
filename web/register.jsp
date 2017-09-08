@@ -11,53 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-    <%
-        //Patient ID
-        Random rn = new Random();
-        int id = rn.nextInt(10000) + 1;
-        //Name
-        String fname = request.getParameter("FName");       
-        String lname = request.getParameter("LName");
-        String name = fname + lname;
-        //Date & Time
-        String date = request.getParameter("");
-        String time = request.getParameter("");
-        //Blood Group
-        String blood = request.getParameter("");
-        //Problem Description
-        String comment = request.getParameter("");
-        //Consultancy Doctor
-        String docctor = request.getParameter("");
-        //Email
-        String email = request.getParameter("Mail");
-        //Number
-        String number = request.getParameter("Number");
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ip_project", "root", "root");
-            String query = "INSERT INTO patients VALUE ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement stmt = con.prepareStatement(query);
-            stmt.setInt(1,id);
-            stmt.setString(2,name);
-            stmt.setString(3,date);
-            stmt.setString(4,time);
-            stmt.setString(5,blood);
-            stmt.setString(6,comment);
-            stmt.setString(7,doctor);
-            stmt.setString(8,email);
-            stmt.setInt(9,number);
-            int pos=stmt.executeUpdate();
-            if(pos > 0) {
-                String result = "Succesfully Inserted";
-            } else {
-                String result = "Failed to insert into database. Try again later.";
-            }
-        } catch (Exception e) {
-            String error = e;
-        }
-    
-    %>
 <!-- Navigation bar -->
     <nav>
         <div class="nav-wrapper blue darken-2">
@@ -73,6 +26,64 @@
             </div>
         </div>
     </nav>
+    <br><br>
+    <div class="container">
+     <div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel teal">
+          <span class="white-text flow-text">
+            <%
+                //Patient ID
+                Random rn = new Random();
+                int id = rn.nextInt(10000) + 1;
+                //Name
+                String fname = request.getParameter("FName");       
+                String lname = request.getParameter("LName");
+                String name = fname + " " + lname;
+                //Date & Time
+                String date = request.getParameter("Dates");
+                String time = request.getParameter("Time");
+                //Blood Group
+                String blood = request.getParameter("BGroup");
+                //Problem Description
+                String comment = request.getParameter("Problem");
+                //Consultancy Doctor
+                String doctor = request.getParameter("Doctor");
+                //Email
+                String email = request.getParameter("Mail");
+                //Number
+                String number = request.getParameter("Number");
+                //Database Conection
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ip_project", "root", "root");
+                    String query = "INSERT INTO patients VALUE ( ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    PreparedStatement stmt = con.prepareStatement(query);
+                    stmt.setInt(1,id);
+                    stmt.setString(2,name);
+                    stmt.setString(3,date);
+                    stmt.setString(4,time);
+                    stmt.setString(5,blood);
+                    stmt.setString(6,comment);
+                    stmt.setString(7,doctor);
+                    stmt.setString(8,email);
+                    stmt.setString(9,number);
+                    int pos=stmt.executeUpdate();
+                    if(pos > 0) {
+                        out.println("Succesfully Registered");
+                    } else {
+                        out.println("Failed to insert into database. Try again later.");
+                    }
+                } catch (Exception e) {
+                    out.println(e);            
+                }
+            %>
+          </span>
+        </div>
+      </div>
+    </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br>    
     <!-- Footer -->
     <footer class="page-footer blue darken-2">
         <div class=" container ">
